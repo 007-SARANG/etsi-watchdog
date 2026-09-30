@@ -2,6 +2,7 @@
 
 import numpy as np
 import warnings
+from pandas.api.types import is_numeric_dtype
 from .base import DriftResult
 
 
@@ -44,7 +45,7 @@ def compute_psi(expected, actual, buckets=10, threshold=0.2):
 
 def psi_drift(reference_df, current_df, feature, threshold=0.2):
     # Only process numeric data
-    if not np.issubdtype(reference_df[feature].dtype, np.number):
+    if not is_numeric_dtype(reference_df[feature].dtype):
         warnings.warn(f"[etsi-watchdog] Skipping '{feature}' — PSI requires numeric data.")
         return None
 
