@@ -18,7 +18,8 @@ def log_drift(result, path, feature=None):
 
     # Append to CSV or JSON based on extension
     log_dir = os.path.dirname(path)
-    os.makedirs(log_dir, exist_ok=True)
+    if log_dir:
+        os.makedirs(log_dir, exist_ok=True)
 
     if path.endswith(".json"):
         if os.path.exists(path):
