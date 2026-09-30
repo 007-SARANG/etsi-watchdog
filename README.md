@@ -7,7 +7,7 @@
 
 **Real-time data drift detection for machine learning pipelines.**
 
-`etsi-watchdog` is a production-ready Python library for drift detection, version comparison, and real-time monitoring of data streams. Designed for ML practitioners, data scientists, and AI engineers who need reliable data quality insights.
+`etsi-watchdog` is a Python library for drift detection, version comparison, and monitoring of data streams. Review the documented API and limitations before using it in a production pipeline. Designed for ML practitioners, data scientists, and AI engineers who need reliable data quality insights.
 
 ---
 
