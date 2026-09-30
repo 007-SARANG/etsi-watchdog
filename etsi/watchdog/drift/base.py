@@ -1,6 +1,7 @@
 # etsi/watchdog/drift/base.py
 
 import json
+import os
 import matplotlib.pyplot as plt
 from dataclasses import dataclass, asdict
 
@@ -41,6 +42,9 @@ class DriftResult:
     def to_json(self, path=None):
         data = asdict(self)
         if path:
+            parent = os.path.dirname(path)
+            if parent:
+                os.makedirs(parent, exist_ok=True)
             with open(path, "w") as f:
                 json.dump(data, f, indent=2)
             print(f"[etsi-watchdog] DriftResult written to {path}")
